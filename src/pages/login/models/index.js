@@ -1,14 +1,9 @@
 export default {
-  namespace: '',
+  namespace: 'login',
 
-  state: {
+  state: {},
 
-  },
+  reducers: {},
 
-  reducers: {
-  },
-
-  effects: {
-
-  },
-}
+  effects: {},
+};
