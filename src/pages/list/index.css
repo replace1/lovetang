@@ -1,0 +1,48 @@
+.article-manager {
+  background: #f5f7f9;
+}
+.article-manager .i-layout-page-header {
+  margin: 0 -18px;
+  background-color: #fff;
+  padding: 7px 32px 0 32px;
+}
+.article-manager .i-layout-page-header .i-layout-page-header {
+  margin: 0 -18px;
+  background-color: #fff;
+  padding: 7px 32px 0 32px;
+}
+.article-manager .i-layout-page-header .i-layout-page-header span {
+  display: inline-block;
+  color: #17233d;
+  font-weight: 500;
+  font-size: 20px;
+  padding-bottom: 16px;
+}
+.article-manager .ivu-card-dis-hover {
+  margin-top: 16px !important;
+  display: block;
+  background: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+.article-manager .ivu-card-dis-hover .ivu-card-body {
+  padding: 16px;
+}
+.article-manager .ivu-card-dis-hover .ivu-card-body .ivu-form-label-right {
+  font-size: 12px;
+}
+.article-manager .ivu-card-dis-hover .ivu-card-body .ivu-form-label-right .div {
+  padding-left: 12px;
+  padding-right: 12px;
+  height: 60px;
+}
+.article-manager .ivu-card-dis-hover .ivu-card-body .Button button {
+  margin-right: 15px !important;
+}
+.article-manager .ivu-card-dis-hover .ivu-card-body .acea-row {
+  margin-top: 22px;
+  display: flex;
+  justify-content: right;
+}
