@@ -541,9 +541,6 @@ export default {
   // 商品分类
   category: `/adminapi/product/category/tree/0`,
 
-  // 商品分类列表
-  categoryList: `/adminapi/product/category`,
-
   setShow: `/adminapi/product/category/set_show`,
 
   sampleLogin: `/Home/Apis/Index/_c/sampleLogin`,

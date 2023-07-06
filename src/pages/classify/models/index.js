@@ -1,8 +1,8 @@
-import api from '@/services';
+import api from '../../../services';
 import { history } from 'umi';
 
 export default {
-  namespace: 'login',
+  namespace: 'classify',
   state: {
     data: [],
   },
@@ -17,12 +17,11 @@ export default {
   effects: {
     // 登录
     *fetchLogin({ payload }, { call, put, select }) {
-      const res = yield call(api.authlogin2, payload);
-      if (res.status == 200) {
-        localStorage.setItem('token', res.data.token);
+      const res = yield call(api.categoryList2, payload);
+      if (res?.status == 200) {
         yield put({
           type: 'setData',
-          payload: res.data,
+          payload: res.data.list,
         });
       }
     },

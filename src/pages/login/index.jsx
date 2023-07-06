@@ -20,6 +20,7 @@ export default connect((state) => {
 function login(props) {
   const { dispatch, loading } = props;
   const [show, setShow] = useState(false);
+  const [min, setMin] = useState(false);
 
   //屏幕宽度的值
   const [windowSize, setWindowSize] = useState({
@@ -60,11 +61,13 @@ function login(props) {
     });
     //message 提示框
     if (!loading) {
+      setMin(true);
       message.loading({
         content: '登录中',
         onClose: () => {
           //结束后跳转页面
-          // history.push('');
+          setMin(false);
+          history.push('/admin/product/product_classify');
         },
       });
     }
@@ -160,7 +163,12 @@ function login(props) {
               <img onClick={img} src={time} alt="" />
             </div>
             <Form.Item>
-              <Button type="primary" htmlType="submit" styleName="butt">
+              <Button
+                loading={min}
+                type="primary"
+                htmlType="submit"
+                styleName="butt"
+              >
                 登录
               </Button>
             </Form.Item>

@@ -1,0 +1,41 @@
+.action {
+  padding: 12px 0;
+  position: relative;
+  line-height: 24px;
+  white-space: pre-line;
+  word-break: break-all;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.action span:nth-child(1) {
+  color: #2d8cf0;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.action span:nth-child(2) {
+  margin: 0 8px;
+  display: inline-block;
+  height: 0.9em;
+  width: 1px;
+  vertical-align: middle;
+  position: relative;
+  top: -0.06em;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #515a6e;
+  box-sizing: border-box;
+  padding: 0;
+  list-style: none;
+  background: #e8eaec;
+}
+.action span:nth-child(3) {
+  color: #2d8cf0;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}

@@ -1,15 +1,16 @@
-import axios from 'axios'
-import _ from 'lodash'
+import axios from 'axios';
+import _ from 'lodash';
 // import { QMessage } from 'wd-component'
-import config from '@/cfgs/common'
+import config from '@/cfgs/common';
 
-const isdev = environment.includes('start')
+const isdev = environment.includes('start');
 // const baseURL = isdev ? '/dev' : `/${environment}`
-const baseURL = ''
-const timeout = 3000
+const baseURL = '';
+const timeout = 3000;
 
 // dev / mirror / pre 环境切换域名
-const getUrl = url => isdev ? url: `${config.requestUrl[environment]}${url}`
+const getUrl = (url) =>
+  isdev ? url : `${config.requestUrl[environment]}${url}`;
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -27,13 +28,12 @@ const codeMessage = {
   502: '网关错误。',
   503: '服务不可用，服务器暂时过载或维护。',
   504: '网关超时。',
-}
+};
 
-const errorHandler = error => {
-  const { response } = error
+const errorHandler = (error) => {
+  const { response } = error;
 
   if (response && response.status) {
-    
     // console.log(codeMessage[response.status] || response.statusText)
     // QMessage.error(codeMessage[response.status] || response.statusText)
   } else if (!response) {
@@ -41,130 +41,130 @@ const errorHandler = error => {
     // console.log('网络异常无法连接到服务器')
   }
 
-  return response
-}
+  return response;
+};
 
-let cancelToken = axios.CancelToken
+let cancelToken = axios.CancelToken;
 
-const cancel = []
+const cancel = [];
 
-const removePending = config => {
-  for(let p in cancel){
+const removePending = (config) => {
+  for (let p in cancel) {
     if (cancel[p].u === config.url) {
-      cancel[p].f()
+      cancel[p].f();
     }
   }
-}
+};
 
 // 请求拦截器 发送一个请求之前
-axios.interceptors.request.use(config => {
-  //在一个ajax发送前执行一下取消操作
-  removePending(config)
-  config.cancelToken = new cancelToken(c => {
-    cancel.push({
-      f: c,
-      u: config.url,
-    })
-  })
+axios.interceptors.request.use(
+  (config) => {
+    //在一个ajax发送前执行一下取消操作
+    removePending(config);
+    config.cancelToken = new cancelToken((c) => {
+      cancel.push({
+        f: c,
+        u: config.url,
+      });
+    });
 
-  // 添加 headers token
-  // 这块拿不到 dva
-  return config
-
-}, error => {
-  return Promise.reject(error)
-})
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers['Authori-zation'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
 // 响应拦截器
-axios.interceptors.response.use(response => {
-  return response
+axios.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    console.log(error, 'token失效了');
+    errorHandler(error);
+  },
+);
 
-}, error => {
-  console.log(error, 'token失效了');
-  errorHandler(error)
-})
-
-function processingData (response) {
-  const data = _.get(response, 'data', null)
+function processingData(response) {
+  const data = _.get(response, 'data', null);
 
   if (!_.get(data, 'errno', '')) {
-    return data
-
+    return data;
   } else {
-    QMessage.error(data.msg)
-    return {}
+    QMessage.error(data.msg);
+    return {};
   }
 }
 
 // 上传
-async function uploadPost (url, payload = {}, other = {}) {
+async function uploadPost(url, payload = {}, other = {}) {
   const response = await axios({
     method: 'post',
     url,
     data: payload,
     baseURL: '/dev', // 公共路径
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
     ...other,
-  })
-    .catch(err => console.log(err))
+  }).catch((err) => console.log(err));
 
-  return processingData(response)
+  return processingData(response);
 }
 
 // url 是请求的服务器地址
 // payload 参数
 // other 其他参数 headers 等
-async function post (url, payload = {}, other = {}) {
+async function post(url, payload = {}, other = {}) {
   const response = await axios({
     method: 'post',
     url,
     baseURL: '/dev', // 公共路径
     data: { ...payload },
-  })
-    .catch(err => console.log(err))
+  }).catch((err) => console.log(err));
 
-  return processingData(response)
+  return processingData(response);
 }
 
-async function get (url, payload = {}, other = {}) {
+async function get(url, payload = {}, other = {}) {
   const response = await axios({
     method: 'get',
     baseURL: '/dev', // 公共路径
     url,
     params: { ...payload },
     ...other,
-  })
-    .catch(err => console.log(err))
-  
-  return processingData(response)
+  }).catch((err) => console.log(err));
+
+  return processingData(response);
 }
 
-async function put (url, payload = {}, other = {}) {
+async function put(url, payload = {}, other = {}) {
   const response = await axios({
     method: 'put',
     url,
     baseURL: '/dev', // 公共路径
     data: { ...payload },
     ...other,
-  })
-    .catch(err => console.log(err))
-  
-  return processingData(response)
+  }).catch((err) => console.log(err));
+
+  return processingData(response);
 }
 
-async function del (url, payload = {}, other = {}) {
+async function del(url, payload = {}, other = {}) {
   const response = await axios({
     method: 'delete',
     baseURL: '/dev', // 公共路径
     url,
     params: { ...payload },
     ...other,
-  })
-    .catch(err => console.log(err))
-  
-  return processingData(response)
+  }).catch((err) => console.log(err));
+
+  return processingData(response);
 }
 
 export default {
@@ -173,4 +173,4 @@ export default {
   put,
   del,
   uploadPost,
-}
+};
