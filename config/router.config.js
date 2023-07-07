@@ -1,5 +1,4 @@
 export default [
-  
   {
     path: '/admin/product',
     routes: [
@@ -7,6 +6,11 @@ export default [
         path: '/admin/product/product_list',
         component: './list',
         title: '商品管理',
+      },
+      {
+        path: '/admin/product/add_product',
+        component: './add',
+        title: '商品添加',
       },
     ],
   },
