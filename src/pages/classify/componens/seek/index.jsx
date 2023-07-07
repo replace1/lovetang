@@ -29,10 +29,11 @@ function Seek() {
   const onGenderChange = (e) => {
     console.log(e);
   };
+
   return (
     <>
       <Form name="basic" onFinish={onFinish}>
-        <Form.Item styleName="sort_top" name="goods" label="商品分类">
+        <Form.Item styleName="sort_top" name="pid" label="商品分类">
           <Select
             placeholder="请选择商品分类"
             onChange={onGenderChange}
@@ -45,7 +46,7 @@ function Seek() {
             ))}
           </Select>
         </Form.Item>
-        <Form.Item styleName="sort_top" name="state" label="分类状态">
+        <Form.Item styleName="sort_top" name="is_show" label="分类状态">
           <Select
             placeholder="请选择分类状态"
             onChange={onGenderChange}
@@ -59,11 +60,11 @@ function Seek() {
           </Select>
         </Form.Item>
         <div styleName="sort sort_top">
-          <Form.Item styleName="sort_butt" name="name" label="分类名称">
+          <Form.Item styleName="sort_butt" name="cate_name" label="分类名称">
             <Input placeholder="请输入分类名称" />
           </Form.Item>
           <Form.Item>
-            <Button type="primary">
+            <Button htmlType="submit" type="primary">
               <IconFont type="icon-sousuo" />
             </Button>
           </Form.Item>

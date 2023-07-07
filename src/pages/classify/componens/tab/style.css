@@ -39,3 +39,9 @@
   cursor: pointer;
   transition: color 0.2s ease;
 }
+.icont {
+  color: #939599;
+}
+table {
+  margin-left: 1.5%;
+}
