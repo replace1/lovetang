@@ -546,7 +546,7 @@ export default {
   sampleLogin: `/Home/Apis/Index/_c/sampleLogin`,
 
   //商品分类点击搜索
-  category3: ``,
+  category3: `/adminapi/product/category`,
   // /adminapi/product/category?pid=240&is_show=&page=1&cate_name=&limit=15
 
   // http://www.lovetang.top/adminapi/login

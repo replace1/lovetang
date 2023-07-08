@@ -1,7 +1,8 @@
-import React, { useForm } from 'react';
+import React, { useForm, useEffect } from 'react';
 import './style.css';
 import { Button, Select, Input, Form } from 'antd';
 import { createFromIconfontCN } from '@ant-design/icons';
+import { connect } from 'dva';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/c/font_4149689_8osqrxga5hm.js',
@@ -20,19 +21,44 @@ const select2 = [
   { id: 2, page: 0, value: '隐藏' },
 ];
 
-function Seek() {
+export default connect((state) => {
+  return {
+    data: state.classify.data,
+    loading: !!state.loading.effects['classify/fetchLogin'],
+  };
+})(Seek);
+function Seek(props) {
+  const { dispatch, data } = props;
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    console.log(values);
+    dispatch({
+      type: 'classify/cateGory',
+      payload: {
+        pid: values.pid,
+        is_show: values.is_show,
+        page: 1,
+        cate_name: values.cate_name,
+        limit: 15,
+      },
+    });
   };
   const onGenderChange = (e) => {
-    console.log(e);
+    dispatch({
+      type: 'classify/cateGory',
+      payload: {
+        pid: form.getFieldsValue().pid,
+        is_show: form.getFieldsValue().is_show,
+        page: 1,
+        cate_name: form.getFieldsValue().cate_name,
+        limit: 15,
+      },
+    });
   };
 
   return (
     <>
-      <Form name="basic" onFinish={onFinish}>
+      <Form form={form} name="basic" onFinish={onFinish}>
         <Form.Item styleName="sort_top" name="pid" label="商品分类">
           <Select
             placeholder="请选择商品分类"
@@ -81,5 +107,3 @@ function Seek() {
     </>
   );
 }
-
-export default Seek;

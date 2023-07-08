@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './style.css';
 import { connect } from 'dva';
-import { Image, Table, Switch } from 'antd';
+import { Image, Table, Switch, Modal } from 'antd';
 import { PlusCircleTwoTone, MinusCircleTwoTone } from '@ant-design/icons';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';

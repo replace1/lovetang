@@ -1,4 +1,4 @@
-import api from '../../../services';
+import api from '@/services';
 import { history } from 'umi';
 import { message } from 'antd';
 
@@ -30,7 +30,6 @@ export default {
     // 点击显示隐藏
     *setShow({ payload }, { call, put, select }) {
       const res = yield call(api.setShow2, payload);
-      console.log(res);
       if (res?.status == 200) {
         message.success({
           content: res.msg,
