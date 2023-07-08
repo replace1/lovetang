@@ -1,5 +1,7 @@
 export default [
+  //商品
   {
+<<<<<<< HEAD
     path: '/',
     component: '@/layouts/BasicLayout',
     routes: [{ path: '/', component: './login', title: '首页' }],
@@ -18,4 +20,21 @@ export default [
       },
     ],
   },
+=======
+    path: '/admin/product',
+    routes: [
+      {
+        path: '/admin/product/product_classify',
+        component: './classify',
+        title: '商品分类',
+      },
+    ],
+  },
+  //登录
+  {
+    path: '/admin',
+    component: '@/layouts/BasicLayout',
+    routes: [{ path: '/admin/login', component: './login', title: '登录页面' }],
+  },
+>>>>>>> zjb
 ];

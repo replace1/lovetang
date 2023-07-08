@@ -1,0 +1,78 @@
+form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 7%;
+  margin-left: 1.5%;
+}
+form .sort {
+  display: flex;
+}
+form .sort button {
+  border-radius: 0px 4px 4px 0px;
+}
+button {
+  margin-left: 1.5%;
+}
+.buttent {
+  width: 100%;
+}
+.buttent button {
+  color: #fff;
+  background-color: #2d8cf0;
+  border-color: #2d8cf0;
+  vertical-align: middle;
+  line-height: 1.5;
+  outline: 0;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  user-select: none;
+  padding: 5px 15px 6px;
+  display: flex;
+  align-items: center;
+}
+.buttent svg {
+  color: #fff;
+  margin-right: 10px;
+}
+@media screen and (min-width: 991px) {
+  .sort_top {
+    width: 30%;
+    margin-left: 1.5%;
+  }
+  .sort_top input {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+  .sort_top {
+    width: 40%;
+    margin-left: 1.5%;
+  }
+  .sort_top input {
+    width: 100%;
+  }
+  .sort_top .sort_butt {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .sort_top {
+    width: 100%;
+    margin-left: 1.5%;
+  }
+  .sort_top input {
+    width: 100%;
+  }
+  .sort_top .sort_butt {
+    width: 100%;
+  }
+}

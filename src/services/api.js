@@ -487,14 +487,14 @@ export default {
 
   /**
    * 运营管理
-   * */ 
+   * */
   // 大转盘
   getTurntableTemplateList: '/tag_strategy/turntable/template_list', //获取大转盘模版列表
-  getTurntableActiveList: '/tag_strategy/turntable/activity_list',   //获取大转盘活动列表
+  getTurntableActiveList: '/tag_strategy/turntable/activity_list', //获取大转盘活动列表
   getTurntableGiftList: '/tag_strategy/turntable/gift_list', //获取大转盘活动的奖品列表
-  getTurntableActive: '/tag_strategy/turntable/get_activity',  //获取大转盘活动详情
-  saveTurntableActive: '/tag_strategy/turntable/save_activity',   //保存大转盘活动
-  delTuretableActive:'/tag_strategy/turntable/del_activity', //删除大转盘活动
+  getTurntableActive: '/tag_strategy/turntable/get_activity', //获取大转盘活动详情
+  saveTurntableActive: '/tag_strategy/turntable/save_activity', //保存大转盘活动
+  delTuretableActive: '/tag_strategy/turntable/del_activity', //删除大转盘活动
 
   // 获取媒体类型下拉列表
   getMediaTypeList_put: '/market_manager/ext/media_type',
@@ -515,7 +515,7 @@ export default {
   addVivoSrcid_put: '/market_manager/adv_account/vivo_source',
 
   // vivo数据源删除
-  deleteVivoSource_put:'/market_manager/adv_account/vivo_source_del',
+  deleteVivoSource_put: '/market_manager/adv_account/vivo_source_del',
 
   // oppo关联账号
   addOppoAdAccount_put: '/market_manager/adv_account/oppo_add',
@@ -541,15 +541,19 @@ export default {
   // 商品分类
   category: `/adminapi/product/category/tree/0`,
 
-  // 商品分类列表
-  categoryList: `/adminapi/product/category`,
-
   setShow: `/adminapi/product/category/set_show`,
 
   sampleLogin: `/Home/Apis/Index/_c/sampleLogin`,
+
+  //商品分类点击搜索
+  category3: `/adminapi/product/category`,
+  // /adminapi/product/category?pid=240&is_show=&page=1&cate_name=&limit=15
+
+  // http://www.lovetang.top/adminapi/login
+  login1: '/adminapi/login',
 
   upload2: `/adminapi/file/upload`,
   user: `/adminapi/home/user`,
   storeProduct: `/adminapi/export/storeProduct`,
   userLevel: `/adminapi/user/user_level/create?id=0`,
-}
+};
