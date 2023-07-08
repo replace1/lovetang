@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'dva';
 import { Button, Form, Input, Radio, Select, Table } from 'antd';
 const { TextArea } = Input;
+import Freight from '../freight/index';
 
 export default connect((state) => {
   return {};
@@ -62,7 +63,7 @@ function Messages() {
       editable: true,
     },
     {
-      title: '重量（KG）',
+      title: '重量(KG)',
       dataIndex: 'address',
       width: '120',
       editable: true,
@@ -77,6 +78,7 @@ function Messages() {
 
   const [type, setType] = useState('普通商品');
   const [specification, setSpecification] = useState('普通商品');
+  const [checkShow, setCheckSHow] = useState(false);
 
   return (
     <div className="massagesBox">
@@ -227,7 +229,13 @@ function Messages() {
               ]}
             />
             <Button type="primary">确认</Button>
-            <Button>添加规格模版</Button>
+            <Button
+              onClick={() => {
+                setCheckSHow(!checkShow);
+              }}
+            >
+              添加规格模版
+            </Button>
           </Form.Item>
         )}
 
@@ -259,6 +267,7 @@ function Messages() {
           />
         </Form.Item>
       </div>
+      <Freight checkShow={checkShow} />
     </div>
   );
 }

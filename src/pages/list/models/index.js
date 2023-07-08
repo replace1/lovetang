@@ -28,8 +28,8 @@ export default {
     setList(state, { payload }) {
       return {
         ...state,
-        data: payload,
-        count: payload.length,
+        data: payload.data.list,
+        count: payload.data.count,
       };
     },
     //获取搜索名字
@@ -94,7 +94,7 @@ export default {
     *productList({ payload }, { call, put, select }) {
       const res = yield call(api.getProductList, payload);
       if (res?.data) {
-        yield put({ type: 'setList', payload: res.data.list });
+        yield put({ type: 'setList', payload: res });
       }
     },
     //获取搜索名字

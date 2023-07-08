@@ -21,7 +21,6 @@ export default connect((state) => {
 function list(props) {
   const { dispatch, count, type, count2, count1, count3, count5, count6 } =
     props;
-
   const [page, setPage] = useState(1); //当前页
 
   //每次切换数据后，page重制到第一页
@@ -48,7 +47,7 @@ function list(props) {
         },
       });
     }
-  }, [count]);
+  }, [type]);
 
   //tabs切换数据
   const items = [
@@ -137,6 +136,7 @@ function list(props) {
                 />
               </Form.Item>
             </div>
+
             <div styleName="div">
               <Form.Item name="searchgoods " label="商品搜索">
                 <Search
