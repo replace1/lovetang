@@ -95,7 +95,7 @@ const Menus = [
         is_header: 1,
       },
       {
-        path: '/admin/user/title',
+        path: '/admin/user/label',
         title: '用户标签',
         icon: '',
         header: 'user',

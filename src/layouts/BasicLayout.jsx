@@ -7,9 +7,8 @@ import {
   UserOutlined,
   LogoutOutlined,
   ReloadOutlined,
-  AndroidFilled,
 } from '@ant-design/icons';
-import { Layout, Select, Button, message, Breadcrumb } from 'antd';
+import { Layout, Select, message, Breadcrumb } from 'antd';
 import './style.less';
 import { QBread, QMenu } from '../components';
 import { connect } from 'dva';
@@ -141,13 +140,7 @@ function BasicLayout(props) {
                 onClick={flushed}
                 style={{ cursor: 'pointer', marginLeft: 20, color: '#ccc' }}
               />
-              {/* <AndroidFilled style={{ margin: '0 20px' }} /> */}
             </span>
-            {/* <Breadcrumb>
-              {breaList.map((v, i) => (
-                <Breadcrumb.Item key="i">{v ? v : '主页'}</Breadcrumb.Item>
-              ))}
-            </Breadcrumb> */}
             <QBread />
           </div>
           <Select
@@ -183,11 +176,11 @@ function BasicLayout(props) {
           </span>
         </Header>
         {/* <QTag /> */}
+        <QTag />
         <Content
           style={{
             margin: '24px 16px',
             padding: 24,
-            minHeight: 280,
             background: '#fff',
           }}
         >

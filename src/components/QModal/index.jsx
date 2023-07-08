@@ -1,7 +1,7 @@
 import React from 'react';
 import { LoadingOutlined } from '@ant-design/icons';
 
-import { message, Modal, Spin } from 'antd';
+import { Modal } from 'antd';
 
 function Qmodal(props) {
   const {

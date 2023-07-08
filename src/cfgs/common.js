@@ -33,7 +33,8 @@ export default {
   wxlink: 'https://mp.weixin.qq.com/',
 
   // 小程序配置关联教程
-  appletPdf: 'https://img.readgood.cn/fe/distribution-cms/static/appletConfig.pdf',
+  appletPdf:
+    'https://img.readgood.cn/fe/distribution-cms/static/appletConfig.pdf',
 
   // 模板消息教程链接
   templateMsgLink:
@@ -75,5 +76,5 @@ export default {
   },
 
   staticPath: `//img.readgood.cn/fe/distribution/statics/`, // 静态资源默认目录
-  imgPath: `//img.readgood.cn/` // 图片地址域名
+  imgPath: `//img.readgood.cn/`, // 图片地址域名
 };

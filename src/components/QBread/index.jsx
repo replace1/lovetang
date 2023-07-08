@@ -7,7 +7,6 @@ import QIcon from '../QIcon';
 
 function QBread() {
   const location = useLocation();
-  console.log(Menus);
   const deepGetItem = (arr, path) => {
     let nArr = [];
 
@@ -29,7 +28,6 @@ function QBread() {
     return deepGetItem(Menus, location.pathname);
   }, [location.pathname]);
 
-  console.log(menuList);
   return (
     <Breadcrumb>
       {menuList.map((v) => {
