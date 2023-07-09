@@ -1,6 +1,4 @@
 import api from '@/services';
-import { message } from 'antd';
-import { history } from 'umi';
 
 export default {
   namespace: 'QTag',
@@ -18,5 +16,13 @@ export default {
     },
   },
 
-  effects: {},
+  effects: {
+    *getTag(payload, { call, put }) {
+      console.log(payload);
+      yield put({
+        type: 'setTag',
+        payload,
+      });
+    },
+  },
 };
