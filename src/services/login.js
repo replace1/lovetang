@@ -24,3 +24,9 @@ export const category4 = (payload) => request.get(api.category3, payload);
 //删除
 export const categorySea = (payload) =>
   request.del(`/adminapi/product/category/${payload}`, payload);
+
+//商品分类---下拉框数据
+export const categoryTree = (payload) =>
+  request.get(`/adminapi/product/category/tree/0`, payload);
+
+export const create2 = (payload) => request.get(api.create, payload);

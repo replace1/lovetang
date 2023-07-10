@@ -5,8 +5,8 @@ import { connect } from 'dva';
 import { Button, Select, Input, Form } from 'antd';
 
 import Seek from './componens/seek'; //表单的组件
-// import Tabel from './componens/tabel'; //表单的组件
 import Tab from './componens/tab';
+import Models from './componens/modals';
 
 export default connect((state) => {
   return {
@@ -41,6 +41,9 @@ function classify(props) {
           </div>
           <div styleName="centre_cen_header">
             <Seek />
+          </div>
+          <div>
+            <Models />
           </div>
           <div styleName="cenheader">
             <Tab />

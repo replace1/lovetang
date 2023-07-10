@@ -5,12 +5,26 @@ export default {
   namespace: 'classify',
   state: {
     data: [],
+    page: [],
+    pone: [],
   },
   reducers: {
     setData(state, { payload }) {
       return {
         ...state,
         data: payload,
+      };
+    },
+    PageData(state, { payload }) {
+      return {
+        ...state,
+        page: payload,
+      };
+    },
+    PoneData(state, { payload }) {
+      return {
+        ...state,
+        pone: payload,
       };
     },
   },
@@ -76,5 +90,28 @@ export default {
         });
       }
     },
+
+    //商品分类——下拉框
+    *feelPage({ payload }, { call, put, select }) {
+      const res = yield call(api.categoryTree, payload);
+      if (res.status == 200) {
+        yield put({
+          type: 'PageData',
+          payload: res.data,
+        });
+      }
+    },
+
+    *ponePage({ payload }, { call, put, select }) {
+      const res = yield call(api.categoryTree, payload);
+      if (res.status == 200) {
+        yield put({
+          type: 'PoneData',
+          payload: res.data,
+        });
+      }
+    },
+
+    // create2
   },
 };
