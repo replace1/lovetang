@@ -1,5 +1,4 @@
 import api from '@/services';
-import { history } from 'umi';
 import { message } from 'antd';
 
 export default {
@@ -54,6 +53,26 @@ export default {
         yield put({
           type: 'setData',
           payload: res.data.list,
+        });
+      }
+    },
+
+    //商品删除
+    *pathehone({ payload }, { call, put, select }) {
+      const res = yield call(api.categorySea, payload);
+      if (res?.status == 200 || res?.status == 400) {
+        message.success({
+          content: res.msg,
+        });
+        yield put({
+          type: 'fetchLogin',
+          payload: {
+            pid: '',
+            is_show: '',
+            page: 1,
+            cate_name: '',
+            limit: 15,
+          },
         });
       }
     },

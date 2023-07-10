@@ -20,3 +20,7 @@ export const setShow2 = (payload) =>
 //商品分类 (点击搜索)
 // category3
 export const category4 = (payload) => request.get(api.category3, payload);
+
+//删除
+export const categorySea = (payload) =>
+  request.del(`/adminapi/product/category/${payload}`, payload);

@@ -1,24 +1,45 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './style.css';
 import { connect } from 'dva';
-import { Image, Table, Switch, Modal } from 'antd';
-import { PlusCircleTwoTone, MinusCircleTwoTone } from '@ant-design/icons';
-import ReactDOM from 'react-dom';
+import { Image, Table, Switch, Modal, message } from 'antd';
 import 'antd/dist/antd.css';
 import { createFromIconfontCN } from '@ant-design/icons';
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/c/font_4149689_6fcjps8i672.js',
+  scriptUrl: '//at.alicdn.com/t/c/font_4149689_dtpu6ben41d.js',
 });
 
 export default connect((state) => {
   return {
     data: state.classify.data,
-    loading: !!state.loading.effects['classify/fetchLogin'],
+    loading: !!state.loading.effects['classify/pathehone'],
   };
 })(Tab);
 function Tab(props) {
   const { dispatch, data, loading } = props;
 
+  const [open, setOpen] = useState(false);
+  const [num, setNum] = useState(0);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+
+  const handleOk = () => {
+    dispatch({
+      type: 'classify/pathehone',
+      payload: num,
+    });
+    setConfirmLoading(true);
+    if (!loading) {
+      setOpen(false);
+      setConfirmLoading(false);
+    }
+  };
+  const handleCancel = () => {
+    setOpen(false);
+    message.info('确定取消');
+  };
+  const showModal = (val) => {
+    setNum(val.id);
+    setOpen(true);
+  };
   const change1 = (e, v) => {
     dispatch({
       type: 'classify/setShow',
@@ -28,7 +49,6 @@ function Tab(props) {
       },
     });
   };
-
   const columns = [
     {
       title: 'ID',
@@ -78,12 +98,17 @@ function Tab(props) {
         <div styleName="action">
           <span>编辑</span>
           <span></span>
-          <span>删除</span>
+          <span
+            onClick={() => {
+              showModal(item);
+            }}
+          >
+            删除
+          </span>
         </div>
       ),
     },
   ];
-
   return (
     <>
       <Table
@@ -116,6 +141,26 @@ function Tab(props) {
           },
         }}
       />
+
+      <Modal
+        closable={false}
+        wrapClassName="modals"
+        title={
+          <div styleName="header">
+            <IconFont type="icon-wenhao" />
+            <b>删除商品分类</b>
+          </div>
+        }
+        cancelText="取消"
+        okText="确定"
+        open={open}
+        onOk={handleOk}
+        confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+      >
+        <div styleName="header_cen">确定要删除商品分类？</div>
+        <div styleName="header_cen">删除商品分类后将无法恢复，请谨慎操作!</div>
+      </Modal>
     </>
   );
 }
