@@ -1,0 +1,61 @@
+.buttent {
+  width: 100%;
+}
+.buttent button {
+  color: #fff;
+  background-color: #2d8cf0;
+  border-color: #2d8cf0;
+  vertical-align: middle;
+  line-height: 1.5;
+  outline: 0;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  user-select: none;
+  padding: 5px 15px 6px;
+  display: flex;
+  align-items: center;
+}
+.buttent svg {
+  color: #fff;
+  margin-right: 10px;
+}
+.modal_button {
+  width: 97%;
+  margin-right: 3%;
+  padding: 5px 15px 6px;
+  text-align: center;
+  color: #fff;
+  background-color: #2d8cf0;
+  border-color: #2d8cf0;
+  font-size: 12px;
+  border: 0;
+  border-radius: 4px;
+}
+.item {
+  width: 100%;
+  height: 100%;
+}
+.form_two {
+  display: flex;
+  flex-direction: column;
+}
+.modalales {
+  padding: 0 0 12px 0;
+}
+.impag {
+  width: 50px;
+  height: 50px;
+}
+.ant-upload {
+  width: 50px;
+  height: 50px;
+}
