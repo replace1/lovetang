@@ -14,6 +14,16 @@ export default [
         component: './reply',
         title: '商品规格',
       },
+      {
+        path: '/admin/product/product_list',
+        component: './list',
+        title: '商品管理',
+      },
+      {
+        path: '/admin/product/add_product',
+        component: './add',
+        title: '商品添加',
+      },
     ],
   },
 

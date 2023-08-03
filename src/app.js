@@ -4,6 +4,7 @@ import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 import 'antd/dist/antd.less';
 // import 'lib-flexible'
 import './styles/index.less';
+import 'react-quill/dist/quill.snow.css';
 
 // 缓存白名单
 const persistConfig = {
