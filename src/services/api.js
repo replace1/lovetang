@@ -40,6 +40,12 @@ export default {
   //商品规格数据
   attrList: '/adminapi/product/product/rule',
 
+  // 商品评论删除
+  replyDel: '/adminapi/product/reply',
+
+  // 商品评论回复
+  replyUp: '/adminapi/product/reply/set_reply',
+
   //////////////////////////////
 
   replyList: '/adminapi/product/reply',

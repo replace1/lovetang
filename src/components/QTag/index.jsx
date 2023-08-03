@@ -10,7 +10,6 @@ export default function QTag(props) {
   console.log(location.pathname);
 
   useEffect(() => {
-    console.log(123);
     let res = deepTag(Menus, location.pathname);
     data.push(...res);
   }, [location.pathname, data]);

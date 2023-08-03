@@ -14,12 +14,14 @@ function Qmodal(props) {
     loading = false,
     onOk = () => {},
     onCancel = () => {},
+    borderRadius = 10,
     ...item
   } = props;
 
   return (
     <>
       <Modal
+        borderRadius={10}
         loading={loading}
         title={title}
         open={status}

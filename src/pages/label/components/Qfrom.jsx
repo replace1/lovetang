@@ -6,9 +6,11 @@ const { Option } = Select;
 export default connect(({ label, loading }) => {
   return {
     getAddList: label.getAddList,
+    loading: !!loading.effects.getUserLabel,
   };
 })(Qfrom);
 function Qfrom(props) {
+  const { loading } = props;
   const [form] = Form.useForm();
   const [con, setCon] = useState();
   const {
@@ -93,8 +95,10 @@ function Qfrom(props) {
           onCancel={handleCancel}
           cancelText={Modal.confirm}
           okText=""
+          loading={loading}
         >
           <Form
+            loading={loading}
             form={form}
             labelCol={{
               span: 6,

@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'dva';
-import { Button, Image } from 'antd';
+import { Button, Image, message } from 'antd';
 import './styles.less';
-import columns from './colums';
+import useColumn from './colums';
 import Qsearch from './components/search';
-import { QTable } from '@@@';
+import { QTable, Qmodal } from '@@@';
 export default connect((state) => {
   return {
     replys: state.reply.replys,
     count: state.reply.count,
-    loading: state.loading.effects['reply/fetchReplyList'],
+    loading:
+      state.loading.effects[('reply/fetchReplyDel', 'reply/fetchReplyList')],
   };
 })(reply);
 function reply(props) {
   const { dispatch, replys, count, loading } = props;
-
+  const [status, setStatus] = useState(false);
+  const [del, setDel] = useState({});
   const [page, setPage] = useState(1);
+  const [status2, setStatus2] = useState(false);
 
   const reply = (page) => {
     dispatch({
@@ -45,8 +48,31 @@ function reply(props) {
     setPage(page);
   };
 
+  const onCancel = () => {
+    setStatus(false);
+    message.error('取消删除');
+  };
+
+  const onOk = () => {
+    dispatch({ type: 'reply/fetchReplyDel', payload: del.id });
+    setStatus(false);
+    message.info('删除成功');
+  };
+
+  const onClick = () => {
+    console.log(123);
+  };
+
+  const onOk2 = () => {
+    console.log(123);
+  };
+
+  const onCancel2 = () => {
+    console.log(123);
+  };
+
   return (
-    <div styleName="reply-box">
+    <div styleName="reply-box" onClick={onClick}>
       <Qsearch />
       <Button styleName="reply-add" type="primary">
         + 添加虚拟评论
@@ -54,7 +80,7 @@ function reply(props) {
       <QTable
         loading={loading}
         dataSource={replys}
-        columns={columns}
+        columns={useColumn({ dispatch, setStatus, setDel, setStatus2 })}
         rowKey="id"
         pagination={{
           current: page,
@@ -68,6 +94,23 @@ function reply(props) {
           x: 1000,
         }}
       />
+
+      <Qmodal
+        status={status}
+        loading={loading}
+        title="删除分组"
+        title1="确定要删除评论吗？"
+        title2="删除评论后将无法恢复，请谨慎操作！"
+        onCancel={onCancel}
+        onOk={onOk}
+      />
+      <Qmodal
+        status={status2}
+        loading={loading}
+        title="回复内容"
+        onCancel={onCancel2}
+        onOk={onOk2}
+      ></Qmodal>
     </div>
   );
 }

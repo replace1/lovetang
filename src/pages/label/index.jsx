@@ -25,7 +25,6 @@ function label(props) {
   const changeTabPosition = (e) => {
     setTabPosition(e.target.value);
   };
-
   // 列表数据
   const getLabel = async (page, opt) => {
     await dispatch({
@@ -128,6 +127,7 @@ function label(props) {
             children: (
               <>
                 <Qfrom
+                  loading={loading}
                   groupList={() => getLabel()}
                   onrevise={() => onrevise(id)}
                   isModalOpen={isModalOpen}

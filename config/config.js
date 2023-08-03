@@ -1,12 +1,12 @@
-import { defineConfig } from 'umi'
+import { defineConfig } from 'umi';
 // import theme from '../src/theme/variables'
-import theme from './theme.config'
-import routes from './router.config'
-import env from './env'
+import theme from './theme.config';
+import routes from './router.config';
+import env from './env';
 
-const pxtorem = require('postcss-pxtorem')
+const pxtorem = require('postcss-pxtorem');
 
-const path = require('path')
+const path = require('path');
 
 export default defineConfig({
   ...env,
@@ -29,7 +29,7 @@ export default defineConfig({
     '@': path.resolve(__dirname, '../src'),
     '@@@': path.resolve(__dirname, '../src/components'),
     '@assets': path.resolve(__dirname, '../src/assets/images'),
-    '@less':path.resolve(__dirname, '../src/theme/mixins.less')
+    '@less': path.resolve(__dirname, '../src/theme/mixins.less'),
   },
   routes,
   theme, // 皮肤
@@ -47,7 +47,8 @@ export default defineConfig({
       {
         exclude: 'node_modules', // 排除 node_modules 所有 css 不走 styleName编译
         generateScopedName: '[name]__[local]___[hash:base64:5]', // 哈希规则
-        filetypes: { // 哪些后缀走 sytleName解析
+        filetypes: {
+          // 哪些后缀走 sytleName解析
           '.less': {
             syntax: 'postcss-less',
           },
@@ -69,18 +70,23 @@ export default defineConfig({
     modules: {
       auto: function (opt) {
         // 这2个文件不走 styleName 编译
-        const index = path.normalize('src/styles/index.less')
-        const components = path.normalize('src/components')
+        const index = path.normalize('src/styles/index.less');
+        const components = path.normalize('src/components');
 
-        return !opt.includes('node_modules')
-          && !opt.includes(index)
-          && !opt.includes(components)
+        return (
+          !opt.includes('node_modules') &&
+          !opt.includes(index) &&
+          !opt.includes(components)
+        );
       },
-      localIdentName: '[name]__[local]___[hash:base64:5]'
+      localIdentName: '[name]__[local]___[hash:base64:5]',
     },
   },
   // dva: {
   //   immer: true,
   // }
   // mfsu: {},
-})
+  qiankun: {
+    slave: {},
+  },
+});
