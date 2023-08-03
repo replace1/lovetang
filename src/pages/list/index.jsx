@@ -19,8 +19,17 @@ export default connect((state) => {
 })(list);
 
 function list(props) {
-  const { dispatch, count, type, count2, count1, count3, count5, count6 } =
-    props;
+  const {
+    dispatch,
+    history,
+    count,
+    type,
+    count2,
+    count1,
+    count3,
+    count5,
+    count6,
+  } = props;
   const [page, setPage] = useState(1); //当前页
 
   //每次切换数据后，page重制到第一页
@@ -148,7 +157,12 @@ function list(props) {
             </div>
           </Form>
           <div styleName="Button">
-            <Button type="primary">
+            <Button
+              type="primary"
+              onClick={() => {
+                history.push('/admin/product/add_product');
+              }}
+            >
               <PlusOutlined />
               添加商品
             </Button>

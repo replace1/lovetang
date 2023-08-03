@@ -552,5 +552,7 @@ export default {
   user: `/adminapi/home/user`,
   storeProduct: `/adminapi/export/storeProduct`,
   userLevel: `/adminapi/user/user_level/create?id=0`,
-    
+
+  //批量下架
+  unShow: 'adminapi/product/product/product_unshow',
 };

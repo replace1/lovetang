@@ -88,7 +88,6 @@ export default {
       };
     },
   },
-
   effects: {
     //获取表格数据
     *productList({ payload }, { call, put, select }) {
@@ -158,6 +157,11 @@ export default {
       if (res?.data) {
         yield put({ type: 'setCount6', payload: res.data.list });
       }
+    },
+    //批量删除
+    *getUnShow({ payload }, { call, put, select }) {
+      const res = yield call(api.getUnShow, payload);
+      console.log(res);
     },
   },
 };

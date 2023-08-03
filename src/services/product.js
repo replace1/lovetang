@@ -18,3 +18,6 @@ export const getDel = (payload) =>
 //恢复商品
 export const getRenew = (payload) =>
   request.get(`/adminapi/product/product/${payload}`);
+
+//批量下架
+export const getUnShow = (payload) => request.put(api.unShow, payload);
