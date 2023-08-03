@@ -10,13 +10,6 @@ const IconFont = createFromIconfontCN({
 });
 
 //下拉框的数据
-// const select1 = [
-//   { id: 1, pid: 241, value: '|-----1' },
-//   { id: 2, pid: 240, value: '|-----123456' },
-//   { id: 3, pid: 238, value: '|-----11111' },
-//   { id: 4, pid: 234, value: '|-----111' },
-//   { id: 5, pid: 232, value: '|-----花卉' },
-// ];
 const select2 = [
   { id: 1, page: 1, value: '显示' },
   { id: 2, page: 0, value: '隐藏' },

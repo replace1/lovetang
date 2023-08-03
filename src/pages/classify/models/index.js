@@ -7,6 +7,8 @@ export default {
     data: [],
     page: [],
     pone: [],
+    imgLeft: [],
+    imgData: [],
   },
   reducers: {
     setData(state, { payload }) {
@@ -27,6 +29,18 @@ export default {
         pone: payload,
       };
     },
+    ImgText(state, { payload }) {
+      return {
+        ...state,
+        imgLeft: payload,
+      };
+    },
+    ImgRight(state, { payload }) {
+      return {
+        ...state,
+        imgData: payload,
+      };
+    },
   },
   effects: {
     // 获取表格数据
@@ -39,7 +53,6 @@ export default {
         });
       }
     },
-
     // 点击显示隐藏
     *setShow({ payload }, { call, put, select }) {
       const res = yield call(api.setShow2, payload);
@@ -59,7 +72,6 @@ export default {
         });
       }
     },
-
     // 商品分类 (点击搜索)
     *cateGory({ payload }, { call, put, select }) {
       const res = yield call(api.category4, payload);
@@ -70,7 +82,6 @@ export default {
         });
       }
     },
-
     //商品删除
     *pathehone({ payload }, { call, put, select }) {
       const res = yield call(api.categorySea, payload);
@@ -90,7 +101,6 @@ export default {
         });
       }
     },
-
     //商品分类——下拉框
     *feelPage({ payload }, { call, put, select }) {
       const res = yield call(api.categoryTree, payload);
@@ -101,9 +111,8 @@ export default {
         });
       }
     },
-
     *ponePage({ payload }, { call, put, select }) {
-      const res = yield call(api.categoryTree, payload);
+      const res = yield call(api.create2, payload);
       if (res.status == 200) {
         yield put({
           type: 'PoneData',
@@ -112,6 +121,28 @@ export default {
       }
     },
 
-    // create2
+    //图片接口
+    *ImgPage({ payload }, { call, put, select }) {
+      const res = yield call(api.fileCategory2, payload);
+      console.log(res);
+
+      // if (res?.status == 200) {
+      //   yield put({
+      //     type: 'setData',
+      //     payload: res.data.list,
+      //   });
+      // }
+    },
+    *ImgFund({ payload }, { call, put, select }) {
+      const res = yield call(api.fileFile2, payload);
+      console.log(res);
+
+      // if (res?.status == 200) {
+      //   yield put({
+      //     type: 'setData',
+      //     payload: res.data.list,
+      //   });
+      // }
+    },
   },
 };

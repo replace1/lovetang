@@ -1,6 +1,15 @@
 import React, { useForm, useEffect, useState } from 'react';
 import './style.css';
-import { Button, Select, Input, Form, Modal, Upload } from 'antd';
+import {
+  Button,
+  Select,
+  Input,
+  Form,
+  Modal,
+  Upload,
+  InputNumber,
+  Radio,
+} from 'antd';
 import { createFromIconfontCN } from '@ant-design/icons';
 import { connect } from 'dva';
 import { PlusOutlined } from '@ant-design/icons';
@@ -8,7 +17,6 @@ import { PlusOutlined } from '@ant-design/icons';
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/c/font_4149689_8osqrxga5hm.js',
 });
-// pone
 
 const layout = {
   labelCol: {
@@ -18,7 +26,6 @@ const layout = {
     span: 18,
   },
 };
-
 export default connect((state) => {
   return {
     pone: state.classify.pone,
@@ -28,7 +35,15 @@ function Modals(props) {
   const { dispatch, pone } = props;
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
+  const [pag, setPag] = useState([]);
 
+  useEffect(() => {
+    props.mod.rules?.map((v, i) => {
+      if (i == 0) {
+        setPag(v);
+      }
+    });
+  }, [props]);
   const showModal = () => {
     setOpen(true);
   };
@@ -43,11 +58,6 @@ function Modals(props) {
   const onFinish1 = (values) => {
     console.log('Success:', values);
   };
-  const select3 = [
-    { id: 1, value: '顶级菜单' },
-    { id: 2, value: '12121' },
-    { id: 3, value: '111' },
-  ];
   return (
     <div styleName="modalales">
       <div styleName="buttent">
@@ -58,7 +68,7 @@ function Modals(props) {
       </div>
 
       <Modal
-        title={<b>添加分类</b>}
+        title={<b>{props.mod.title}</b>}
         open={open}
         onOk={handleOk}
         confirmLoading={confirmLoading}
@@ -77,10 +87,10 @@ function Modals(props) {
             onFinish={onFinish1}
           >
             <Form.Item label="上级分类" name="username">
-              <Select defaultActiveFirstOption={true} placeholder="顶级菜单">
-                {select3.map((v, i) => (
-                  <Select.Option key={v.id} value={v.value}>
-                    {v.value}
+              <Select placeholder="顶级菜单">
+                {pag.options?.map((v, i) => (
+                  <Select.Option key={i} value={v.value}>
+                    {v.label}
                   </Select.Option>
                 ))}
               </Select>
@@ -97,7 +107,6 @@ function Modals(props) {
             >
               <Input placeholder="请输入分类名称" />
             </Form.Item>
-
             <Form.Item
               label="分类图标(180*180)"
               name="img1"
@@ -114,7 +123,6 @@ function Modals(props) {
                 </div>
               </Upload>
             </Form.Item>
-
             <Form.Item
               label="分类大图(468*340)"
               name="img2"
@@ -130,6 +138,15 @@ function Modals(props) {
                   <div>Upload</div>
                 </div>
               </Upload>
+            </Form.Item>
+            <Form.Item label="排序" name="InputNumber">
+              <InputNumber />
+            </Form.Item>
+            <Form.Item label="状态" name="status">
+              <Radio.Group>
+                <Radio value="显示">显示</Radio>
+                <Radio value="隐藏">隐藏</Radio>
+              </Radio.Group>
             </Form.Item>
           </Form>
         </div>

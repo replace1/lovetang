@@ -11,10 +11,11 @@ import Models from './componens/modals';
 export default connect((state) => {
   return {
     data: state.classify.data,
+    pone: state.classify.pone,
   };
 })(classify);
 function classify(props) {
-  const { dispatch, data } = props;
+  const { dispatch, data, pone } = props;
 
   //获取表格数据
   useEffect(() => {
@@ -27,6 +28,11 @@ function classify(props) {
         cate_name: '',
         limit: 15,
       },
+    });
+  }, []);
+  useEffect(() => {
+    dispatch({
+      type: 'classify/ponePage',
     });
   }, []);
 
@@ -43,7 +49,7 @@ function classify(props) {
             <Seek />
           </div>
           <div>
-            <Models />
+            <Models mod={pone} />
           </div>
           <div styleName="cenheader">
             <Tab />

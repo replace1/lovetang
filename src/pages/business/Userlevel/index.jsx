@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { connect } from 'dva'
-import { QModal } from '@@@'
+import { connect } from 'dva';
+import { QModal } from '@@@';
 
 /* 
   <UserLevel 
@@ -9,34 +9,25 @@ import { QModal } from '@@@'
   />
 */
 
-export default connect(({ }) => {
-  return {
-    
-  }
-})(UserLevel)
+export default connect(({}) => {
+  return {};
+})(UserLevel);
 function UserLevel(props) {
-  const { dispatch } = props
+  const { dispatch } = props;
 
   const {
     open = false, // 弹窗展开 隐藏
-  } = props
+  } = props;
 
   useEffect(() => {
     dispatch({
-      type: 'userLevel/fetch'
-    })
-  }, [])
+      type: 'userLevel/fetch',
+    });
+  }, []);
 
   return (
-    <QModal
-      title="用户"
-      open={open}
-    >
-      <Form
-        name="basic"
-        labelCol={{span: 8}}
-        wrapperCol={{span: 16}}
-      >
+    <QModal title="用户" open={open}>
+      <Form name="basic" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
         <Form.Item
           label="Username"
           name="username"
@@ -51,9 +42,5 @@ function UserLevel(props) {
         </Form.Item>
       </Form>
     </QModal>
-  )
+  );
 }
-
-
-
-

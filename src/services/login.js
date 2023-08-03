@@ -30,3 +30,8 @@ export const categoryTree = (payload) =>
   request.get(`/adminapi/product/category/tree/0`, payload);
 
 export const create2 = (payload) => request.get(api.create, payload);
+
+//图片接口等
+export const fileCategory2 = (payload) =>
+  request.get(api.fileCategory, payload);
+export const fileFile2 = (payload) => request.get(api.fileFile, payload);
