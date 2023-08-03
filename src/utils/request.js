@@ -68,6 +68,7 @@ axios.interceptors.request.use(
       });
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
     const token = localStorage.getItem('token');
 
     if (token) {
@@ -86,6 +87,13 @@ axios.interceptors.request.use(
       config.headers['Authori-zation'] = `Bearer ${token}`;
     }
 >>>>>>> d425090bda079b4e32dc20517a240857efc184c9
+=======
+
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers['Authori-zation'] = `Bearer ${token}`;
+    }
+>>>>>>> 3492635df0cfc4886d3f995b0372840d3e2d1a3f
     return config;
   },
   (error) => {

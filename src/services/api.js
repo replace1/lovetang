@@ -545,15 +545,20 @@ export default {
   //商品管理头部菜单搜索
   getMenusList: '/adminapi/menusList',
 
+<<<<<<< HEAD
   //商品管理头部tabs切换
   typeHeader: '/adminapi/product/product/type_header',
 
   //商品管理开关
   setShow: 'adminapi/product/product/set_show/',
+=======
+  setShow: `/adminapi/product/category/set_show`,
+>>>>>>> 3492635df0cfc4886d3f995b0372840d3e2d1a3f
 
   //商品管理查看详情数据接口
   lookProduct: '/adminapi/product/product/',
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   //商品分类搜索接口
   search: '/adminapi/product/category/tree/0',
@@ -623,12 +628,32 @@ export default {
   //用户标签- 删除
   labelDel: '/adminapi/user/user_label/del',
 =======
+=======
+  create: `/adminapi/product/category/create`,
+
+  //图片
+  fileCategory: `/adminapi/file/category`,
+  fileFile: `/adminapi/file/file`,
+  // http://www.lovetang.top/adminapi/file/category?name=
+  // http://www.lovetang.top/adminapi/file/file?pid=0&page=1&limit=18
+
+  //商品分类点击搜索
+  category3: `/adminapi/product/category`,
+  // /adminapi/product/category?pid=240&is_show=&page=1&cate_name=&limit=15
+
+  // http://www.lovetang.top/adminapi/login
+  login1: '/adminapi/login',
+
+>>>>>>> 3492635df0cfc4886d3f995b0372840d3e2d1a3f
   upload2: `/adminapi/file/upload`,
   user: `/adminapi/home/user`,
   storeProduct: `/adminapi/export/storeProduct`,
   userLevel: `/adminapi/user/user_level/create?id=0`,
+<<<<<<< HEAD
 
   //批量下架
   unShow: 'adminapi/product/product/product_unshow',
 >>>>>>> d425090bda079b4e32dc20517a240857efc184c9
+=======
+>>>>>>> 3492635df0cfc4886d3f995b0372840d3e2d1a3f
 };

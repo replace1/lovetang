@@ -1,0 +1,48 @@
+form {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 7%;
+  margin-left: 1.5%;
+}
+form .sort {
+  display: flex;
+}
+form .sort button {
+  border-radius: 0px 4px 4px 0px;
+}
+button {
+  margin-left: 1.5%;
+}
+@media screen and (min-width: 991px) {
+  .sort_top {
+    width: 30%;
+    margin-left: 1.5%;
+  }
+  .sort_top input {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+  .sort_top {
+    width: 40%;
+    margin-left: 1.5%;
+  }
+  .sort_top input {
+    width: 100%;
+  }
+  .sort_top .sort_butt {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .sort_top {
+    width: 100%;
+    margin-left: 1.5%;
+  }
+  .sort_top input {
+    width: 100%;
+  }
+  .sort_top .sort_butt {
+    width: 100%;
+  }
+}
