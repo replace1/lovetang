@@ -3,7 +3,12 @@ import storage from 'redux-persist/lib/storage';
 import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 import 'antd/dist/antd.less';
 // import 'lib-flexible'
+<<<<<<< HEAD
 import './styles/index.less';
+=======
+import './styles/index.less'
+import 'react-quill/dist/quill.snow.css';
+>>>>>>> d425090bda079b4e32dc20517a240857efc184c9
 
 // 缓存白名单
 const persistConfig = {

@@ -67,6 +67,7 @@ axios.interceptors.request.use(
         u: config.url,
       });
     });
+<<<<<<< HEAD
     const token = localStorage.getItem('token');
 
     if (token) {
@@ -75,6 +76,16 @@ axios.interceptors.request.use(
     // 添加 headers token
     // 这块拿不到 dva
 
+=======
+
+    // 添加 headers token
+    // 这块拿不到 dva
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      config.headers['Authori-zation'] = `Bearer ${token}`;
+    }
+>>>>>>> d425090bda079b4e32dc20517a240857efc184c9
     return config;
   },
   (error) => {

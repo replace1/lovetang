@@ -11,7 +11,7 @@ export default {
 
   // 远程调试地址
   requestUrl: {
-    dev: '//www.lovetang.top',
+    dev: 'http://www.lovetang.top',
     // dev: '//blogs.zdldove.top',
     dev2: '//test-front-2.wandu.cn/cps',
     dev3: '//testzeus4.666shuwu.cn/cps',
