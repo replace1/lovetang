@@ -1,17 +1,21 @@
 import request from '@/utils/request';
 import api from './api';
 
-// 登录接口
-export const login = params => request.post(api.post_login, params);
+/* 用户操作 - 用户标签 */
+export const userLabel = (payload) => request.get(api.user_label, payload);
+export const labelCate = (payload) => request.get(api.label_cate, payload);
+// 删除
+export const labelDel = (payload) => request.del(`${api.labelDel}/${payload}`);
+// 添加标签
+export const labelAdd = (payload) => request.get(api.labelAdd, payload);
+// 用户添加标签
+export const labelSave = (payload) => request.post(api.labelSave, payload);
+// 编辑
+export const userLabeAdd = (payload) =>
+  request.get(`${api.userLabeAdd}/${payload}`);
 
-// 退出接口
-export const logout = params => request.get(api.get_logout);
-
-// 左侧导航栏菜单
-export const getMenuList = params => request.get(api.menu_list, params);
-
-// 判断用户是否绑定公众号
-export const getAuthWx = params => request.get(api.auth_wx_app, params);
-
-// 新分销登陆老分销 带状态
-export const newLoginOld = params => request.get(api.new_login_Old, params)
+// 添加  分类
+export const cateCreate = (payload) => request.get(api.cateCreate, payload);
+// 添加分类
+export const userLabelCate = (payload) =>
+  request.post(api.userLabelCate, payload);

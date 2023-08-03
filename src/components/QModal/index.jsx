@@ -1,37 +1,43 @@
-import { Button, Modal } from 'antd';
-import React, { useState } from 'react';
+import React from 'react';
+import { LoadingOutlined } from '@ant-design/icons';
 
-export default function QModal (props) {
+import { Modal } from 'antd';
+
+function QModal(props) {
   const {
-    title = '', //
-    open = false, // 隐藏
-    setOpen = () => {},
-    children = <></>,
-    footer = <Button>提交</Button>,
+    status = false, //提示框状态
+    title = '', //标题
+    title1 = '', //提示文字
+    title2 = '', //提示文字
+    title3 = '', //提示文字
+    width = 400, //宽度
+    loading = false,
+    onOk = () => {},
+    onCancel = () => {},
+    borderRadius = 10,
     ...item
-  } = props
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  }
-
-  // 关闭监听
-  const handleCancel = () => {
-    setOpen(!open)
-  }
+  } = props;
 
   return (
     <>
       <Modal
+        borderRadius={10}
+        loading={loading}
         title={title}
-        open={open}
-        onOk={handleOk} 
-        footer={footer}
-        onCancel={handleCancel} // 监所有关闭
+        open={status}
+        onOk={onOk}
+        onCancel={onCancel}
+        width={width}
+        okText={loading ? <LoadingOutlined /> : '确认'}
+        cancelText="取消"
         {...item}
       >
-        {children}
+        <p>{title1}</p>
+        <p>{title2}</p>
+        <p>{title3}</p>
       </Modal>
     </>
-  )
+  );
 }
+
+export default QModal;

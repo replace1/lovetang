@@ -1,13 +1,13 @@
-import React from 'react'
-import cs from 'classnames'
+import React from 'react';
+import cs from 'classnames';
 import { createFromIconfontCN } from '@ant-design/icons';
-import './styles.less'
+import './styles.less';
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/c/font_3885987_j8xrntk3iq.js',
-})
+  scriptUrl: '//at.alicdn.com/t/c/font_4151426_147pe649s9.js',
+});
 
-export default function QIcon (props) {
+export default function QIcon(props) {
   const {
     color = '#000',
     fontSize = '14px',
@@ -16,18 +16,16 @@ export default function QIcon (props) {
     className = '',
     onClick = () => {},
     ...item
-  } = props
+  } = props;
 
   return (
-    <div 
-      className={cs('componets-qicon', {[className]: className})}
-    >
+    <div className={cs('componets-qicon', { [className]: className })}>
       <IconFont
-        style={{...style, color, fontSize}}
+        style={{ ...style, color, fontSize }}
         type={type}
         onClick={onClick}
         {...item}
       />
     </div>
-  )
+  );
 }

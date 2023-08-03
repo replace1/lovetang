@@ -68,10 +68,18 @@ axios.interceptors.request.use(
       });
     });
 
+    // const token = localStorage.getItem('token');
+    // if (token) {
+    //   config.headers['Authori-zation'] = `Bearer ${token}`;
+    // }
     const token = localStorage.getItem('token');
+
     if (token) {
       config.headers['Authori-zation'] = `Bearer ${token}`;
     }
+    // 添加 headers token
+    // 这块拿不到 dva
+
     return config;
   },
   (error) => {

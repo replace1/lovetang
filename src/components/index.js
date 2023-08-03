@@ -1,8 +1,12 @@
-export { default as QBox } from './QBox'
-export { default as QIcon } from './QIcon'
-export { default as QImage } from './QImage'
-export { default as QTabs } from './QTabs'
-export { default as QModal } from './QModal'
-export { default as QTable } from './QTable'
-export { default as QButton } from './QButton'
-export { default as useMove } from './useMove'
+export { default as QBox } from './QBox';
+export { default as QIcon } from './QIcon';
+// export { default as QImage } from './QImage';
+export { default as QTabs } from './QTabs';
+export { default as QButton } from './QButton';
+export { default as QMenu } from './QMenu';
+export { default as useMove } from './useMove';
+export { default as QPopover } from './QPopover';
+export { default as Qmodal } from './QModal';
+export { default as QBread } from './QBread';
+export { default as QTable } from './QTable';
+export { default as QTag } from './QTag';
